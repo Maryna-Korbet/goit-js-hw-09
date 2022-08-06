@@ -9,7 +9,7 @@ const body = document.querySelector('body');
 let timerId = null;
  
 startBtn.addEventListener('click', () => {
-    startTimet();
+    startTimer();
     startBtn.disabled = true; 
     stopBtn.disabled = false;
 });
@@ -29,7 +29,7 @@ function backgroundColorSwitcher() {
     body.style.backgroundColor = newColor;
 }
 
-function startTimet() {
+function startTimer() {
     timerId = setInterval(backgroundColorSwitcher, 1000);
 }
 
