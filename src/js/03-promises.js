@@ -4,6 +4,7 @@
 import Notiflix from 'notiflix';
 
 const form = document.querySelector('.form');
+const btn = document.querySelector('[type="submit"]');
 
 form.addEventListener('submit', onSubmitForm);
 
@@ -24,10 +25,15 @@ function createPromise(position, delay) {
 function onSubmitForm(e){
   e.preventDefault();
   const element = e.currentTarget.elements;
+  btn.disabled = true;
 
   let delay = parseInt(element.delay.value);
   const step = parseInt(element.step.value);
   const amount = parseInt(element.amount.value);
+
+  setTimeout(() => {
+    btn.disabled = false;
+  }, amount * step + delay)
   
   for (let i = 1; i <= amount; i += 1) {
     createPromise(i, delay)
